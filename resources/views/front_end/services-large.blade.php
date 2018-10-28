@@ -9,7 +9,8 @@
     	<img src="{{ asset('public/uploads/images/banners/'. $banner -> image) }}" class="img-fluid" alt="">
     	<div class="overly">
     		<ul>
-				<li> <a href="{{ route('index') }}"> Home </a> / </li>
+        <li> <a href="{{ route('index') }}"> Home </a> / </li>
+				<li> <a href="{{ route('services') }}"> services </a> / </li>
 				<li> <a href="" class="active"> House Renovation </a> </li>
 			</ul>
     	</div>

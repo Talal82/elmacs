@@ -49,9 +49,6 @@
                    <li> <a href="{{ route('career') }}"> Careers </a> </li>
                    <li> <a href="{{ route('inquiry') }}"> Inquiry </a> </li>
                    <li> <a href="{{ route('contactus') }}"> Contact </a> </li>
-                   @if (Auth::check())
-                   <li> <a href="{{ route('home') }}"> Dashboard </a> </li>
-                   @endif
                </ul>
            </div>
        </div>
@@ -75,9 +72,6 @@
   <a href="{{ route('career') }}"> Careers </a>
   <a href="{{ route('inquiry') }}"> Inquiry </a>
   <a href="{{ route('contactus') }}"> Contact </a>
-  @if (Auth::check())
-  <a href="{{ route('home') }}"> Dashboard </a>
-  @endif
 </div> 
 <script>
     function openNav() {
