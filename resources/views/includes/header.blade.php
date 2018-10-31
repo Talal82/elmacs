@@ -42,7 +42,7 @@
           <div class="col-lg-12 col-md-12">
              <div class="main-menu">
                 <ul>
-                   <li> <a href="{{ route('index') }}"> Home </a> </li>
+                   <li> <a href="{{ route('index') }}" class="{{ \Request::route()->getName() == 'index' ? 'active' : '' }}"> Home </a> </li>
                    <li> <a href="{{ route('aboutus') }}"> About </a> </li>
                    <li> <a href="{{ route('services') }}"> Services </a> </li>
                    <li> <a href="{{ route('projects') }}"> Projects </a> </li>
@@ -65,7 +65,7 @@
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="{{ route('index') }}"> Home </a>
+  <a href="{{ route('index') }}" class="{{ \Request::route()->getName() == 'index' ? 'active' : '' }}"> Home </a>
   <a href="{{ route('aboutus') }}"> About </a>
   <a href="{{ route('services') }}"> Services </a>
   <a href="{{ route('projects') }}"> Projects </a>

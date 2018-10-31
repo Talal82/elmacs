@@ -11,20 +11,13 @@
     		<ul>
         <li> <a href="{{ route('index') }}"> Home </a> / </li>
 				<li> <a href="{{ route('services') }}"> services </a> / </li>
-				<li> <a href="" class="active"> House Renovation </a> </li>
+				<li> <a href="" class="active"> {{ $service -> name }} </a> </li>
 			</ul>
     	</div>
     </div>
     
     <!--main banner-->
 
-  
-  <!--short about-->
-   
-   
-   
-   <!--short about-->
-   
    <div class="container-fluid all-pages movmen">
    	<div class="container">   		
    		<div class="row">

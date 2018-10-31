@@ -30,7 +30,7 @@
       else{
         swal({
           title: "Are you sure ??",
-          text: 'This will be deleted permanently.', 
+          text: 'This be deleted permanently.', 
           icon: "warning",
           buttons: true,
           showCancelButton: true,

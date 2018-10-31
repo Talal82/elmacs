@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'Services')
+@section('title', 'Sub Projects')
 
-@section('page-title', 'Services')
+@section('page-title', 'Sub Projects')
 
 @section('stylesheets')
 
@@ -25,14 +25,14 @@
 		<div class="card">
 			<div class="card-header">
 				<div class="pull-left">
-					<h4>All Services</h4>
+					<h4>Projects of {{ $parentCategory -> name }}</h4>
 				</div>
 				<div class="pull-right">
-					<a class="btn btn-primary" href="{{ route('admin.services.create') }}"><i class="fa fa-plus"></i> New</a>
+					<a class="btn btn-primary" href="{{ route('admin.sub-projects.create', $parentCategory -> id) }}"><i class="fa fa-plus"></i> New</a>
 				</div>
 			</div>
 			<div class="card-body">
-				@if(count($services) > 0)
+				@if(count($projects) > 0)
 				<table class="table">
 					<thead>
 						<tr>
@@ -46,38 +46,46 @@
 							<th>Sr.</th>
 							<th>Name</th>
 							<th>Image</th>
+							<th>Visibility</th>
 							<th>On Home</th>
-							<th>Detail</th>
 							<th width="60">Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($services as $key => $service)
+						@foreach($projects as $key => $project)
 						<tr>
-							<td><input type="checkbox" class="checkbox checkbox-custom" data-id="{{$service->id}}"></td>
+							<td><input type="checkbox" class="checkbox checkbox-custom" data-id="{{$project->id}}"></td>
 							<td>{{ ++$key }}</td>
-							<td>{{ $service -> name }}</td>
+							<td>{{ $project -> name }}</td>
 							<td>
-								<img src="{{ asset('public/uploads/images/services/'. $service -> main_image) }}" width="100" height="100">
+								<img src="{{ asset('public/uploads/images/projects/'. $project -> main_image) }}" width="100" height="100">
 							</td>
-							@if($service -> featured == true)
+							@if($project -> visibility == true)
 							<td>
-								<a class="btn btn-success btn-sm waves waves-effect" href="{{ route('admin.services.featured', $service -> id) }}">Show</a>
+								<a class="badge badge-success waves waves-effect" href="{{ route('admin.sub-projects.visibility', $project -> id) }}">Visible</a>
 							</td>
 							@else
 							<td>
-								<a class="btn btn-danger btn-sm waves waves-effect" href="{{ route('admin.services.featured', $service -> id) }}">Hide</a>
+								<a class="badge badge-danger btn-sm waves waves-effect" href="{{ route('admin.sub-projects.visibility', $project -> id) }}">Invisible</a>
 							</td>
 							@endif
-							<td>{!! strlen($service -> detail) > 100 ? substr($service -> detail, 0, 100).'...': $service -> detail !!}</td>
-							
-							<td>
-								<a href="{{ route('admin.services.edit', [ $service -> id ]) }}" class="btn btn-primary btn-sm pull-left m-r-5 waves waves-effect" title="Edit"><i class="fa fa-wrench" title="Edit"></i></a>
 
-								<a href="javascript:void(0);" data-id="{{ $service-> id }}" class="sa-remove waves wave-effect btn btn-danger btn-sm pull-left" title="Delete"><i class="fa fa-trash"></i></a>
+							@if($project -> featured == true)
+							<td>
+								<a class="badge badge-success waves waves-effect" href="{{ route('admin.sub-projects.featured', $project -> id) }}">Show</a>
+							</td>
+							@else
+							<td>
+								<a class="badge badge-danger btn-sm waves waves-effect" href="{{ route('admin.sub-projects.featured', $project -> id) }}">Hide</a>
+							</td>
+							@endif
+							<td>
+								<a href="{{ route('admin.sub-projects.edit', [ $project -> id ]) }}" class="btn btn-primary btn-sm pull-left m-r-5 waves waves-effect" title="Edit"><i class="fa fa-wrench" title="Edit"></i></a>
+
+								<a href="javascript:void(0);" data-id="{{ $project-> id }}" class="sa-remove waves wave-effect btn btn-danger btn-sm pull-left" title="Delete"><i class="fa fa-trash"></i></a>
 								
 
-								{!! Form::open(['route' => ['admin.services.destroy', $service -> id], 'method' => 'DELETE', 'id' => $service -> id]) !!}
+								{!! Form::open(['route' => ['admin.sub-projects.destroy', $project -> id], 'method' => 'DELETE', 'id' => $project -> id]) !!}
 								<input type="submit" name="" style="display: none; visibility: none;">
 								{!! Form::close() !!}
 							</td>
@@ -124,7 +132,7 @@
 		var value = $(this).attr('data-id');
 		swal({
 			title: "Are you sure ??",
-			text: 'The user will be deleted permanently.', 
+			text: 'This will be deleted permanently.', 
 			icon: "warning",
 			buttons: true,
 			showCancelButton: true,
@@ -141,7 +149,7 @@
 
 </script>
 <script>
-  var url = 'delete-multiple-services';
+  var url = '{{ route('delete-multiple-sub-projects') }}';
 </script>
-<script type="text/javascript" src="{{ asset('public/js/custom/selectDeleteMultiple.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/js/custom/multipleDelete2.js') }}"></script>
 @endsection

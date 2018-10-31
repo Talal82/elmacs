@@ -1,8 +1,8 @@
 @extends('layouts.master')
 
-@section('title', 'Services')
+@section('title', 'Main Categories')
 
-@section('page-title', 'Services')
+@section('page-title', 'Main Categories')
 
 @section('stylesheets')
 
@@ -25,59 +25,60 @@
 		<div class="card">
 			<div class="card-header">
 				<div class="pull-left">
-					<h4>All Services</h4>
+					<h4>All Categories</h4>
 				</div>
 				<div class="pull-right">
-					<a class="btn btn-primary" href="{{ route('admin.services.create') }}"><i class="fa fa-plus"></i> New</a>
+					<a class="btn btn-primary" href="{{ route('admin.main-categories.create') }}"><i class="fa fa-plus"></i> New</a>
 				</div>
 			</div>
 			<div class="card-body">
-				@if(count($services) > 0)
+				@if(count($mainCategories) > 0)
 				<table class="table">
 					<thead>
 						<tr>
-							<th width="80px">
+							{{-- <th width="80px">
 								<select id="multiple_select" class="custom-select m-b-5" width="100" name="multiple_select">
 									<option value="0">action</option>
 									<option value="1">delete</option>
 								</select>
 								<input type="checkbox" id="check_all"><label for="check_all">Check All</label>
-							</th>
+							</th> --}}
 							<th>Sr.</th>
 							<th>Name</th>
-							<th>Image</th>
-							<th>On Home</th>
-							<th>Detail</th>
+							<th>Sub Categories</th>
+							<th>Projects</th>
 							<th width="60">Actions</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($services as $key => $service)
+						@foreach($mainCategories as $key => $category)
 						<tr>
-							<td><input type="checkbox" class="checkbox checkbox-custom" data-id="{{$service->id}}"></td>
+							{{-- <td><input type="checkbox" class="checkbox checkbox-custom" data-id="{{$nationality->id}}"></td> --}}
 							<td>{{ ++$key }}</td>
-							<td>{{ $service -> name }}</td>
+							<td>{{ $category -> name }}</td>
+
+							@if(count($category -> mainProjects) <= 0)
 							<td>
-								<img src="{{ asset('public/uploads/images/services/'. $service -> main_image) }}" width="100" height="100">
-							</td>
-							@if($service -> featured == true)
-							<td>
-								<a class="btn btn-success btn-sm waves waves-effect" href="{{ route('admin.services.featured', $service -> id) }}">Show</a>
+								<a href="{{ route('admin.sub-categories.get', $category -> id) }}" class="btn btn-info" style="padding:10 20px;"><i class="fa fa-eye"></i><br>Sub Categories</a>
 							</td>
 							@else
-							<td>
-								<a class="btn btn-danger btn-sm waves waves-effect" href="{{ route('admin.services.featured', $service -> id) }}">Hide</a>
-							</td>
+							<td></td>
 							@endif
-							<td>{!! strlen($service -> detail) > 100 ? substr($service -> detail, 0, 100).'...': $service -> detail !!}</td>
-							
-							<td>
-								<a href="{{ route('admin.services.edit', [ $service -> id ]) }}" class="btn btn-primary btn-sm pull-left m-r-5 waves waves-effect" title="Edit"><i class="fa fa-wrench" title="Edit"></i></a>
 
-								<a href="javascript:void(0);" data-id="{{ $service-> id }}" class="sa-remove waves wave-effect btn btn-danger btn-sm pull-left" title="Delete"><i class="fa fa-trash"></i></a>
+							@if(count($category -> subCategories) <= 0)
+							<td>
+								<a href="{{ route('admin.main-projects.index', $category -> id) }}" class="btn btn-info" style="padding:10 20px;"><i class="fa fa-eye"></i><br>View Projects</a>
+							</td>
+							@else
+							<td></td>
+							@endif
+							<td>
+								<a href="{{ route('admin.main-categories.edit', [ $category -> id ]) }}" class="btn btn-primary btn-sm pull-left m-r-5 waves waves-effect" title="Edit"><i class="fa fa-wrench" title="Edit"></i></a>
+
+								<a href="javascript:void(0);" data-id="{{ $category-> id }}" class="sa-remove waves wave-effect btn btn-danger btn-sm pull-left" title="Delete"><i class="fa fa-trash"></i></a>
 								
 
-								{!! Form::open(['route' => ['admin.services.destroy', $service -> id], 'method' => 'DELETE', 'id' => $service -> id]) !!}
+								{!! Form::open(['route' => ['admin.main-categories.destroy', $category -> id], 'method' => 'DELETE', 'id' => $category -> id]) !!}
 								<input type="submit" name="" style="display: none; visibility: none;">
 								{!! Form::close() !!}
 							</td>
@@ -140,8 +141,8 @@
 	});
 
 </script>
-<script>
-  var url = 'delete-multiple-services';
+{{-- <script>
+  var url = 'delete-multiple-nationalities';
 </script>
-<script type="text/javascript" src="{{ asset('public/js/custom/selectDeleteMultiple.js') }}"></script>
+<script type="text/javascript" src="{{ asset('public/js/custom/selectDeleteMultiple.js') }}"></script> --}}
 @endsection

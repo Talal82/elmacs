@@ -840,11 +840,26 @@ a {
           text-align: center;
           color: #585d63;
           font-size: 12px; }
+          .all-pages .t-pagination ul li span {
+          text-decoration: none;
+          height: 28px;
+          width: 28px;
+          border: solid 1px #0078ca;
+          background: #0078ca;
+          display: block;
+          line-height: 26px;
+          text-align: center;
+          color: #fff;
+          font-size: 12px; }
           .all-pages .t-pagination ul li a:hover {
             background: #0078ca;
             color: #fff;
             border: solid 1px #0078ca; }
         .all-pages .t-pagination ul li .active {
+          background: #0078ca;
+          color: #fff;
+          border: solid 1px #0078ca; }
+          .all-pages .t-pagination ul li .active span {
           background: #0078ca;
           color: #fff;
           border: solid 1px #0078ca; }
@@ -1238,7 +1253,7 @@ a {
     line-height: 27px;
     text-align: justify; }
 .news-and-events .img {
-  padding: 20px 0;
+  margin: 20px 0;
   height: 188px; }
   .news-and-events .img img {
     height: 188px;
@@ -1539,7 +1554,7 @@ a {
       border: 0;
       border-top: solid 1px #5098ca;
       border-bottom: solid 1px #5098ca; }
-      .left-dropdown-menu .accordion .card .card-header button {
+      .left-dropdown-menu .accordion .card .card-header button, .left-dropdown-menu .accordion .card .card-header a {
         padding: 8px 10px;
         width: 100%;
         display: block;

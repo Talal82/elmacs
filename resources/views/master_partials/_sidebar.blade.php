@@ -62,7 +62,16 @@
             <li class="has_sub">
                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-texture"></i> <span> Services</span> <span class="menu-arrow"></span></a>
                 <ul class="list-unstyled">
-                    <li><a href="{{ route('admin.services.index') }}">Services</a></li>
+                    <li><a href="{{ route('admin.services.index') }}">View All</a></li>
+                </ul>
+            </li>
+
+            <li class="has_sub">
+                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-texture"></i> <span> Projects</span> <span class="menu-arrow"></span></a>
+                <ul class="list-unstyled">
+                    <li><a href="{{ route('admin.main-categories.index') }}">View All</a></li>
+                    {{-- <li><a href="{{ route('admin.main-categories.create') }}">Add Main Category</a></li> --}}
+                    {{-- <li><a href="{{ route('admin.sub-categories.create') }}">Add Sub Category</a></li> --}}
                 </ul>
             </li>
 

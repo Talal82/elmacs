@@ -124,84 +124,7 @@
 @endforeach
 
 
-{{-- <div class="item wow bounceIn" data-wow-delay="0.30s">
- <div class="services-style">
-  <div class="img">
-   <img src="{{ asset('public/images/service1.jpg') }}" class="img-fluid" alt="">
-   <div class="overly">
-    <div class="read-more-btn">
-     <a href="services-large.php">
-      <span href=""> Read More </span>
-      <span href=""> > </span>
-    </a>
-  </div>
-</div>
-</div>
-<div class="details">
- <a href="services-large.php"><h4>Building Planning</h4></a>
-</div>
-</div>
-</div>
 
-
-<div class="item wow bounceIn" data-wow-delay="0.40s">
- <div class="services-style">
-  <div class="img">
-   <img src="{{ asset('public/images/service1.jpg') }}" class="img-fluid" alt="">
-   <div class="overly">
-    <div class="read-more-btn">
-     <a href="services-large.php">
-      <span href=""> Read More </span>
-      <span href=""> > </span>
-    </a>
-  </div>
-</div>
-</div>
-<div class="details">
- <a href="services-large.php"><h4>Building Planning</h4></a>
-</div>
-</div>
-</div>
-
-
-<div class="item wow bounceIn" data-wow-delay="0.50s">
- <div class="services-style">
-  <div class="img">
-   <img src="{{ asset('public/images/service1.jpg') }}" class="img-fluid" alt="">
-   <div class="overly">
-    <div class="read-more-btn">
-     <a href="services-large.php">
-      <span href=""> Read More </span>
-      <span href=""> > </span>
-    </a>
-  </div>
-</div>
-</div>
-<div class="details">
- <a href="services-large.php"><h4>Building Planning</h4></a>
-</div>
-</div>
-</div>
-
-
-<div class="item wow bounceIn" data-wow-delay="0.60s">
- <div class="services-style">
-  <div class="img">
-   <img src="{{ asset('public/images/service1.jpg') }}" class="img-fluid" alt="">
-   <div class="overly">
-    <div class="read-more-btn">
-     <a href="services-large.php">
-      <span href=""> Read More </span>
-      <span href=""> > </span>
-    </a>
-  </div>
-</div>
-</div>
-<div class="details">
- <a href="services-large.php"><h4>Building Planning</h4></a>
-</div>
-</div>
-</div> --}}
 
 
 </div>
@@ -228,8 +151,12 @@
 </div>
 </div>
 
+
+@if(count($projects) > 0)
 <div class="container-fluid section3">
   <div class="container">
+
+
    <div class="row">
     <div class="col-lg-12 col-md-12">
      <div class="main-page-heading">
@@ -239,18 +166,24 @@
     </div>
   </div>
 </div>
+
+
 <div class="row">
+
+  @foreach($projects as $key => $project)
+
+  @if($key == 0)
+
   <div class="col-lg-6 col-md-12">
    <div class="project-style wow bounceIn" data-wow-delay="">
-    <a href="project-large.php"><img src="{{ asset('public/images/10.jpg') }}" class="img-fluid" alt=""></a>
+    <a href="{{ route('project.large', $project -> id) }}"><img src="{{ asset('public/images/10.jpg') }}" class="img-fluid" alt=""></a>
     <div class="overly">
-      <a href="project-large.php"><h4> Presidential Palace <br>
-      Hardscape </h4></a>
+      <a href="{{ route('project.large', $project -> id) }}"><h4> {{ $project -> name }} </h4></a>
       <ul>
         <li>  <a href="{{ asset('public/images/10.jpg') }}" data-fancybox="image"> <i class="fa fa-search-plus" aria-hidden="true"></i> </a></li>
         <li>
          <div class="read-more-btn">
-           <a href="project-large.php">
+           <a href="{{ route('project.large', $project -> id) }}">
             <span href=""> Read More </span>
             <span href=""> > </span>
           </a>
@@ -260,18 +193,28 @@
   </div>
 </div>
 </div>
+
+@endif
+@endforeach
+
+
+
 <div class="col-lg-6 col-md-12">
  <div class="row">
+
+@foreach($projects as $key => $project)
+@if($key != 0)
+
   <div class="col-lg-6 col-md-6 col-sm-6">
    <div class="project-style project-style2 wow bounceIn" data-wow-delay="0.10s">
-     <a href="project-large.php"><img src="{{ asset('public/images/02.jpg') }}" class="img-fluid" alt=""></a>
+     <a href="{{ route('project.large', $project -> id) }}"><img src="{{ asset('public/images/02.jpg') }}" class="img-fluid" alt=""></a>
      <div class="overly">
-       <a href="project-large.php"><h4> Presidential</h4></a>
+       <a href="{{ route('project.large', $project -> id) }}"><h4>{{ $project -> name }}</h4></a>
        <ul>
          <li>  <a href="{{ asset('public/images/02.jpg') }}" data-fancybox="image1"> <i class="fa fa-search-plus" aria-hidden="true"></i> </a></li>
          <li>
           <div class="read-more-btn">
-           <a href="project-large.php">
+           <a href="{{ route('project.large', $project -> id) }}">
             <span href=""> View Project </span>
             <span href=""> > </span>
           </a>
@@ -281,78 +224,33 @@
   </div>
 </div>
 </div>
-<div class="col-lg-6 col-md-6 col-sm-6">
- <div class="project-style project-style2 wow bounceIn" data-wow-delay="0.20s">
-   <a href="project-large.php"><img src="{{ asset('public/images/02.jpg') }}" class="img-fluid" alt=""></a>
-   <div class="overly">
-     <a href="project-large.php"><h4> Presidential</h4></a>
-     <ul>
-       <li>  <a href="{{ asset('public/images/02.jpg') }}" data-fancybox="image2"> <i class="fa fa-search-plus" aria-hidden="true"></i> </a></li>
-       <li>
-        <div class="read-more-btn">
-         <a href="project-large.php">
-          <span href=""> View Project </span>
-          <span href=""> > </span>
-        </a>
-      </div>
-    </li>
-  </ul>
+
+@endif
+@endforeach
+
 </div>
 </div>
+
+
 </div>
-<div class="col-lg-6 col-md-6 col-sm-6">
- <div class="project-style project-style2 wow bounceIn" data-wow-delay="0.30s">
-   <a href="project-large.php"><img src="{{ asset('public/images/02.jpg') }}" class="img-fluid" alt=""></a>
-   <div class="overly">
-     <a href="project-large.php"><h4> Presidential</h4></a>
-     <ul>
-       <li>  <a href="{{ asset('public/images/02.jpg') }}" data-fancybox="image3"> <i class="fa fa-search-plus" aria-hidden="true"></i> </a></li>
-       <li>
-        <div class="read-more-btn">
-         <a href="project-large.php">
-          <span href=""> View Project </span>
-          <span href=""> > </span>
-        </a>
-      </div>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-<div class="col-lg-6 col-md-6 col-sm-6">
- <div class="project-style project-style2 wow bounceIn" data-wow-delay="0.40s">
-   <a href="project-large.php"><img src="{{ asset('public/images/02.jpg') }}" class="img-fluid" alt=""></a>
-   <div class="overly">
-     <a href="project-large.php"><h4> Presidential</h4></a>
-     <ul>
-       <li>  <a href="{{ asset('public/images/02.jpg') }}" data-fancybox="image4"> <i class="fa fa-search-plus" aria-hidden="true"></i> </a></li>
-       <li>
-        <div class="read-more-btn">
-         <a href="project-large.php">
-          <span href=""> View Project </span>
-          <span href=""> > </span>
-        </a>
-      </div>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+
 <div class="row">
   <div class="col-lg-12 col-md-12">
    <div class="read-more-btn">
-    <a href="projects.php">
+    <a href="{{ route('projects') }}">
      <span href=""> View All </span>
      <span href=""> > </span>
    </a>
  </div>
 </div>
 </div>
+
+
 </div>
 </div>
+
+@endif
 
 <div class="container-fluid left-section" style="background: url('public/uploads/images/bg/{{ $bg -> hiring_bg }}') center top no-repeat;">
   <div class="container">
