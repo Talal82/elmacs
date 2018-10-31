@@ -1,4 +1,4 @@
-@extends('layouts.middle_master')
+{{-- @extends('layouts.middle_master')
 
 @section('title', 'Register an Admin')
 
@@ -65,4 +65,4 @@
             </div>
             <!-- end card-box -->
 
-@endsection
+@endsection --}}

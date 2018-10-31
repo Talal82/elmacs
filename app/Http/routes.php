@@ -30,6 +30,7 @@ Route::post('email/apply', 'EmailController@apply') -> name('email.apply');
 
 //auth routes
 Route::auth();
+Route::get('/register', 'Auth\AuthController@redirectLogin') -> name('redirect.login');
 
 //admin routes
 Route::group(['middeware' => 'auth', 'prefix' => 'admin'], function(){

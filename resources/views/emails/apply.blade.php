@@ -15,7 +15,8 @@ Address: {{ $address }} <br> <br>
 
 Nationality: {{ $nationality }} <br><br>
 
-Applicant CV: <a href="{{ asset($cv) }}">Download</a> <br><br>
+Applicant CV: {{-- <a href="{{ asset($cv) }}">Download</a> <br><br> --}}
+<a href="{{ 'https://'.$cv }}"> Download</a> <br> <br>
 
 Message: <br> 
 
