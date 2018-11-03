@@ -86,7 +86,7 @@
 </div>
 
 <div class="col-lg-6 col-md-6">
- <div class="g-recaptcha" data-sitekey="6LeDrHcUAAAAAP6ApUPp6LemQMxyroOrCkcvFDYJ"></div>
+<div class="g-recaptcha" data-sitekey="6Le-qXcUAAAAAOyzEbYFGK3GPtyOS7dp7F4Njoj7"></div>
 </div>
 
 </div>

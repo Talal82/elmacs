@@ -56,10 +56,10 @@
    					<h4>{{ $footer -> contact_title }}</h4>
    					{!! $footer -> contact_detail !!}
    				</div>
-   				<div class="footer-subscribe">
+{{--    				<div class="footer-subscribe">
    					<input type="text" placeholder="Enter your email...">
    					<button><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-   				</div>
+   				</div> --}}
    			</div>
    		</div>
    	</div>

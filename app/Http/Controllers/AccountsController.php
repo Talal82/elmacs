@@ -36,6 +36,7 @@ class AccountsController extends Controller
         //validate data
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
+            'email' => 'required|email',
             'new_password' => 'required|same:comfirm_password',
             'email' => 'required|email|unique:users,email,'.$id,
         ]);
@@ -73,7 +74,7 @@ class AccountsController extends Controller
         //here we are not encrypting the password because that method is added in User Model.. Which will automatically encrypt user password whenever password is saved in database
         $user -> password = Hash::make($request -> new_password);
         $user -> save();
-        Session::flash('success', 'Password Changed Successfully!');
+        Session::flash('success', 'Information Changed Successfully!');
         // Toastr::success('Password Changed Successfully!', 'Success');
         return redirect() -> back();
     }
